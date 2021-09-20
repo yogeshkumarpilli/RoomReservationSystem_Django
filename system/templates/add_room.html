@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <p>Your name is: {{ user.username }}</p>
+    {% else %}
+        <p>You are not logged in</p>
+    {% endif %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Add a room!</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Add!</button>
+                <a class="btn btn-outline-secondary" href="{% url 'homepage' %}">Return</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

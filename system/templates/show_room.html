@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+                <p class="article-content"><b>{{ room.name }}</b></p>
+            </div>
+            <p class="article-content">Number of seats: {{ room.capacity }}</p>
+             {% if room.projector == True %}
+            <p class="article-content">Projector availability: Projector </p>
+              {% else %}
+             <p class="article-content">Projector availability: No projector </p>
+              {% endif %}
+          </div>
+    </article>
+    <a class="btn btn-outline-info" href="{% url 'make-reservation' %}">Make reservation!</a>
+    <a class="btn btn-outline-info" href="{% url 'modify-room' room.id %}">Update room!</a>
+    <a class="btn btn-outline-danger" href="{% url 'delete-room' room.id %}">Delete room!</a>
+    <a class="btn btn-outline-secondary" href="{% url 'homepage' %}">Return</a>
+{% endblock %}

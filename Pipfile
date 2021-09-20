@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-shortcuts = "*"
+django-bootstrap-datepicker-plus = "*"
+django-bootstrap4 = "*"
+django-braces = "*"
+django-crispy-forms = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+pytz = "*"
+six = "*"
+soupsieve = "*"
+sqlparse = "*"
+whitenoise = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

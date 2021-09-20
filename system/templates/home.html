@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for room in rooms %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <b>Room name: </b><a class="mr-2" href="{% url 'room-detail' room.id %}">{{ room.name }}</a>
+                </div>
+                <p class="article-content"><b>Number of seats:</b> {{ room.capacity }}</p>
+                  {% if room.projector == True %}
+                <p class="article-content"><b>Projector availability:</b> Projector </p>
+                  {% else %}
+                <p class="article-content"><b>Projector availability:</b> No projector </p>
+                  {% endif %}
+                <p class="article-content"><b>Booked for:</b></p>
+                  {% for res in reservations %}
+                    {% if room.id == res.room.id %}
+                        {{ res.date.day }}.{{ res.date|date:"M" }}
+                    {% endif %}
+                  {% endfor %}
+              </div>
+        </article>
+    {% endfor %}
+
+    <a class="btn btn-outline-info" href="{% url 'add-room' %}">Add a new room!</a>
+    <a class="btn btn-outline-info" href="{% url 'make-reservation' %}">Make reservation!</a>
+{% endblock %}
