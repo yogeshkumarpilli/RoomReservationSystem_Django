@@ -74,7 +74,18 @@
                 <h3>Upcoming reservations:</h3>
                   {% for res in reservations %}
                       <ul class="list-group">
-                      {% if today != res.date %}
+                      {% if today < res.date %}
+                        <li class="list-group-item list-group-item-light"><a class="btn btn-outline-info"
+                             href="{% url 'update-reservation' res.id %}">{{ res.room }} - {{ res.date }}</a>
+                            <p>Description: {{ res.comment }}</p>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                  </ul><br>
+                  <h3>Past reservations:</h3>
+                  {% for res in reservations %}
+                      <ul class="list-group">
+                      {% if today > res.date %}
                         <li class="list-group-item list-group-item-light"><a class="btn btn-outline-info"
                              href="{% url 'update-reservation' res.id %}">{{ res.room }} - {{ res.date }}</a>
                             <p>Description: {{ res.comment }}</p>

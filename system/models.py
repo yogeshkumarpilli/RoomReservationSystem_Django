@@ -11,6 +11,8 @@ def validate_date(date):
 
 # Create your models here.
 class Room(models.Model):
+   
+
     name = models.CharField(max_length=64)
     capacity = models.IntegerField()
     projector = models.BooleanField(default=True)

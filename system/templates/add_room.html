@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-    {% if user.is_authenticated %}
-        <p>Your name is: {{ user.username }}</p>
+    {% if user.is_staff%}
+        <p>Your name is: {{ user.username}}</p>
     {% else %}
-        <p>You are not logged in</p>
+        <p>You are not logged in as admin</p>
     {% endif %}
     <div class="content-section">
         <form method="POST">

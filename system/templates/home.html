@@ -22,6 +22,10 @@
         </article>
     {% endfor %}
 
-    <a class="btn btn-outline-info" href="{% url 'add-room' %}">Add a new room!</a>
-    <a class="btn btn-outline-info" href="{% url 'make-reservation' %}">Make reservation!</a>
+     {% if user.is_staff%}
+     <a class="btn btn-outline-info" href="{% url 'add-room' %}">Add a new room!</a>
+     <a class="btn btn-outline-info" href="{% url 'make-reservation' %}">Make reservation!</a>
+     {% else %}
+     <a class="btn btn-outline-info" href="{% url 'make-reservation' %}">Make reservation!</a>
+     {% endif %}
 {% endblock %}
