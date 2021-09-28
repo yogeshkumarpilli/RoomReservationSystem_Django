@@ -13,7 +13,7 @@ from django.views.generic import CreateView, ListView, DetailView, UpdateView, D
 from django.shortcuts import render, redirect, get_object_or_404
 import datetime
 
-# Create your views here.
+# Create your views in this section
 class RegisterUser(SuccessMessageMixin, FormView):
 
     form_class = UserRegisterForm

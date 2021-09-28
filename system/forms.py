@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import User, Reservation, Room
 from bootstrap_datepicker_plus import DatePickerInput
 
+# This  Class is for User Registeration Form
 class UserRegisterForm(UserCreationForm):
 
     first_name = forms.CharField(max_length=30, required=False, label=('First name'))
@@ -13,6 +14,7 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
 
+# This Class is for User Upgradation Form
 class UserUpdateForm(forms.ModelForm):
 
     first_name = forms.CharField(max_length=30, required=False, label=('First name'))
@@ -23,6 +25,7 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ['first_name', 'last_name', 'username', 'email']
 
+# This  Class is for User Update Registeration Form
 class CreateUpdateReservation(forms.ModelForm):
 
     class Meta:
@@ -39,6 +42,7 @@ class CreateUpdateReservation(forms.ModelForm):
             'date': DatePickerInput()
         }
 
+# This is for User Modification Form
 class CreateModifyRoom(forms.ModelForm):
 
     class Meta:

@@ -20,6 +20,7 @@ from django.contrib.auth import views as auth_views
 from system.views import *
 from system.models import *
 
+# Giving the path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', RegisterUser.as_view(), name='register'),
