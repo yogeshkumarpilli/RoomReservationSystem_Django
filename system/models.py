@@ -18,10 +18,13 @@ class Room(models.Model):
     projector = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.name} with {self.projector} for {self.capacity} people  "
 
 class Reservation(models.Model):
     date = models.DateField(validators=[validate_date])
     room = models.ForeignKey(Room, on_delete=models.CASCADE, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     comment = models.TextField()
+
+    def __str__(self):
+        return f"{self.user} booked {self.room} on {self.date} for {self.comment}" 
