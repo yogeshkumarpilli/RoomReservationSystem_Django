@@ -6,3 +6,5 @@ from .models import Room, Reservation
 
 admin.site.register(Room)
 admin.site.register(Reservation)
+
+# More Changes in Admin Panel can be done later if required
