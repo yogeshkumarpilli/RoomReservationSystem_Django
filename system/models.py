@@ -18,7 +18,7 @@ class Room(models.Model):
     projector = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"{self.name} with {self.projector} for {self.capacity} people  "
+        return f"{self.name} -for {self.capacity} people  "
 
 class Reservation(models.Model):
     date = models.DateField(validators=[validate_date])
@@ -27,4 +27,4 @@ class Reservation(models.Model):
     comment = models.TextField()
 
     def __str__(self):
-        return f"{self.user} booked {self.room} on {self.date} for {self.comment}" 
+        return f"{self.user} booked {self.room} on {self.date} with comments as  {self.comment}" 

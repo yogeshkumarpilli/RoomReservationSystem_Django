@@ -16,7 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"></script>
 
-        <title>Django - Reservation system</title>
+        <title>Room Reservation System</title>
 
     {% block extrahead %}
     {% endblock %}
@@ -47,7 +47,7 @@
     </header>
     <main role="main" class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-7">
           {% if messages %}
             {% for message in messages %}
               <div class="alert alert-{{ message.tags }}">
@@ -58,7 +58,7 @@
           {% block content %}{% endblock %}
         </div>
           {% if reservations|length > 0 %}
-            <div class="col-md-4">
+            <div class="col-md-5">
               <div class="content-section">
                 <h3>Today's reservations:</h3>
                   {% for res in reservations %}
